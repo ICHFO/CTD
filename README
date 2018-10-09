@@ -1,0 +1,33 @@
+Lorrie,
+
+* All your scripts should be placed in the package "ctdcore"
+
+* Database connections are managed by me, therefor:
+    - your scripts that need to have the following import
+    "from app import get_db",
+    this is a function that returns a database connection
+
+WHAT I NEED:
+============
+for sure:
+---------
+def process_pdf(path_to_file):
+    ...
+    returns resource_id
+
+
+depends if you do all database access or you leave some up to me:
+-----------------------------------------------------------------
+def get_resource_ids():
+    ...
+    returns [resource_id, ... ]
+
+def get_keys_for_resource_id(resourc_id):
+    # row_assoc = ibm_db.fetch_assoc(result_set)
+    ...
+    returns [row_assoc, ... ]
+
+
+def update_keys( {key_id, key_values} ):
+    ...
+    returns error_code
