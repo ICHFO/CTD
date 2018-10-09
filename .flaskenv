@@ -1,0 +1,2 @@
+FLASK_APP=ctd.py
+FLASK_DEBUG=1

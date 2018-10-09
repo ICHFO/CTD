@@ -1,0 +1,38 @@
+{% extends "resource.html" %}
+
+{% block rescontent %}
+    <div class="jumbotron">
+        <div class="container container-fluid">
+        <form action="{{ url_for('resource_map') }}" method="POST">
+            <div class="form-group">
+                <label for="resource_select">Resource :</label>
+                <div class="row"><select class="form-control col-12" id="resource_select" name="res_sel">
+                    {% for res_id in resource_ids %}
+                        {% if res_id == resource.id %}
+                        <option value="{{ res_id }}" selected="selected">{{ res_id }}</option>
+                        {% else %}
+                        <option value="{{ res_id }}">{{ res_id }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                </div>
+            </div>
+            <div class="row"><button type="submit" class="btn btn-primary col-12 border border-dark">Load Resource</button></div>
+            <div class="row mt-1 mb-1">
+                <button class="btn btn-info p-1 col-4 border border-dark" formaction="{{ url_for('best_vacancies') }}">Show 5 best vacancies</button>
+                <button class="btn btn-info p-1 col-4 border border-dark" formaction="{{ url_for('sixty_percent') }}">Show vacancies +60%</button>
+                <button class="btn btn-info p-1 col-4 border border-dark" formaction="{{ url_for('nog_iets') }}">Doe nog iets...</button>
+            </div>
+        </form>
+        </div>
+        {% if vacancies %}
+        <div class="container containter-fluid mt-2">
+            <ul class="list-group">
+            {% for vacancy in vacancies %}
+                <a href="{{ vacancy['URL'] }}" class="list-group-item list-group-item-action border border-primary rounded">{{ vacancy['DESCRIPTION']}}</a>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

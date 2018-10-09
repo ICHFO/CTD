@@ -1,0 +1,66 @@
+{% extends "resource.html" %}
+
+{% block styles %}
+{{ super() }}
+<!-- <style>
+    .input-group>.input-group-prepend {
+        flex: 0 0 20%;
+    }
+    .input-group .input-group-text {
+        width: 50%;
+    }
+</style> -->
+{% endblock %}
+{% block rescontent %}
+    <div class="jumbotron p-2">
+        <div class="container container-fluid">
+            <form method="POST" action="{{ url_for('modify_resource') }}">
+                <div class="form-group">
+                    <label for="resource_select">Resource :</label>
+                    <div class="row">
+                        <select class="form-control col-12" id="resource_select" name="res_sel">
+                            {% for res_id in resource_ids %}
+                                {% if res_id == resource.id %}
+                                <option value="{{ res_id }}" selected="selected">{{ res_id }}</option>
+                                {% else %}
+                                <option value="{{ res_id }}">{{ res_id }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <button type="submit" class="btn btn-primary col-12">Load Resource</button>
+                </div>
+            </form>
+
+        </div>
+
+            <form method="POST" action="{{ url_for('modify_resource') }}">
+                <div class="container container-fluid">
+                    <div class="row mb-2">
+                        <button type="submit" class="btn btn-primary col-12">Save</button>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="d-flex flex-wrap">
+                    {% for item in resource.keys %}
+                        <div class="from-control border p-1" style="width:10%">
+                            {{ item['KEY_NAAM'] }}
+                            <select name="{{ item['KEY_NAAM'] }}" class="form-control" id="{{ item['KEY_NAAM'] }}">
+                                {% for choice in choices %}
+                                {% if choice == item['KEY_GELDIG'] %}
+                                <option value="{{ choice }}" selected="selected">{{ choice }}</option>
+                                {% else %}
+                                <option value="{{ choice }}">{{ choice }}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                {% endfor %}
+                 </div>
+                </div>
+             </form>
+
+    </div>
+{% endblock %}
