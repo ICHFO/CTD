@@ -7,6 +7,7 @@ Lorrie,
       "from app import get_db",
       this is a function that returns a database connection
 
+
 WHAT I NEED:
 ============
 for sure:
@@ -31,3 +32,23 @@ def get_keys_for_resource(resourc_id):
 def update_keys( {key_id, key_values} ):
     ...
     returns error_code
+
+
+
+MAKE IT RUN:
+============
+1. clone github
+    root -> ctd/
+             |- app/
+             |   |- ctdcore/
+             |   |- static
+             |   |- ...
+             |- .flaskenv
+             |- ...
+
+2. cd to project root
+3. create python virtual-env
+4. source venv/bin/activate
+5. flask run
+
+!!! Make sure your project interpreter is pointing to the one in venv
