@@ -22,7 +22,7 @@ def get_resource_ids():
     ...
     returns [resource_id, ... ]
 
-def get_keys_for_resource_id(resourc_id):
+def get_keys_for_resource(resourc_id):
     # row_assoc = ibm_db.fetch_assoc(result_set)
     ...
     returns [row_assoc, ... ]
