@@ -3,9 +3,9 @@ Lorrie,
 * All your scripts should be placed in the package "ctdcore"
 
 * Database connections are managed by me, therefor:
-    - your scripts that need to have the following import
-    "from app import get_db",
-    this is a function that returns a database connection
+    - your scripts need to have the following import
+      "from app import get_db",
+      this is a function that returns a database connection
 
 WHAT I NEED:
 ============
