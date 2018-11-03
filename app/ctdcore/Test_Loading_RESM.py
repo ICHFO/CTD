@@ -4,9 +4,11 @@ import loading_RESM
 
 def main(args):
 
-    loading_RESM.main(args)
+    #loading_RESM.main(args)
 
+    keywords, name, forename = loading_RESM.read_pdf(args[1])
 
+    
 
 
 if __name__== "__main__" :
