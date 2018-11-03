@@ -1,9 +1,10 @@
 {
   "ctd_server":"192.168.1.246",
-  "ctd_database":"ctddev",
-  "ctd_port":"50010",
+  "ctd_database":"ctdprd",
+  "ctd_port":"50020",
   "ctd_user":"ctd",
   "ctd_password":"SuadaSoft",
   "cv_directory":"/Users/admin/CTD/scripts/python/phase_2/opvullen_RESM/CV",
   "profile_directory":"/Users/admin/CTD/scripts/python/phase_2/opvullen_RESM/profile/"
 }
+
