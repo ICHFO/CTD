@@ -1,5 +1,10 @@
-{% extends "bootstrap/base.html" %}
+<html>
+<head>
 {% block title %} CTD {% endblock %}
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js/boostrap.js"></script>
+</head>
+<body>
 {% block navbar %}
     <nav class="nav navbar-expand-sm bg-light">
         <a class="navbar-brand" href="/index">
@@ -31,3 +36,5 @@
 {% block content %}
 
 {% endblock %}
+</body>
+</html>
