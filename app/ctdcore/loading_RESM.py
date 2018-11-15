@@ -37,6 +37,8 @@ def check_keyword(keyword):
     if "'" in keyword:
         new_keyword = ''
 
+    #kevin stinkt
+
     return new_keyword
 
 def add_from_pdf(environment, path_to_pdf):
