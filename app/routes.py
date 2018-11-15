@@ -101,7 +101,7 @@ def sixty_percent():
     if request.method == 'POST':
         resource_ids = db_handler.get_resource_ids()
     return render_template('resource_map.html', resource_ids=resource_ids,
-                           current_resource=session['resource'])
+                           resource=session['resource'])
 
 
 @app.route('/nog_iets', methods=['GET', 'POST'])
@@ -109,4 +109,4 @@ def nog_iets():
     if request.method == 'POST':
         resource_ids = db_handler.get_resource_ids()
     return render_template('resource_map.html', resource_ids=resource_ids,
-                           current_resource=session['resource'])
+                           resource=session['resource'])
