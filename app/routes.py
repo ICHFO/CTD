@@ -29,7 +29,7 @@ def add_resource():
             return redirect(request.url)
         file.save(file.filename)
         # parse file and get resource
-        output = lresm.add_from_pdf('DEV', file.filename)
+        output = lresm.add_from_pdf('DEV',file.filename)
         print(output)
         # resource_id = lorrie_func_1(path_to_file)
         resource_id = 'HFO'

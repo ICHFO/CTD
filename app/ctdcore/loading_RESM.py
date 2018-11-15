@@ -43,15 +43,16 @@ def add_from_pdf(environment, path_to_pdf):
     #keywords, name, forename = read_pdf(path_to_pdf)
     #res, new_res = res_exist(forename, name)
 
-    res = process_file(globalProperty.config.cv_file)
+    res = process_file(gp.config.cv_file)
 
     res_keywords = select_keywords(res)
+    print(res_keywords)
+
 
     return res_keywords
 
 
 def read_pdf(file):
-
     with open(file, "rb") as f:
         pdf = pdftotext.PDF(f)
 
@@ -151,7 +152,7 @@ def process_file(file):
 
     insert_ress(ts_start,res["res_id"], nbr_keywords)
 
-
+    return res['res_id']
 
 
 

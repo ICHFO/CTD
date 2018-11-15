@@ -5,7 +5,7 @@ def LogInit(environment):
     logger = logging.getLogger(environment+'.log')
     logger.setLevel(logging.DEBUG)
 
-    fh = RotatingFileHandler(os.path.join(str(sys.path[0]),'log',environment + '.log'), 'a', 1000000, 3)
+    fh = RotatingFileHandler(os.path.join(str(sys.path[0]),'app','ctdcore','log',environment + '.log'), 'a', 1000000, 3)
 
     fh.setLevel(logging.DEBUG)
 

@@ -16,7 +16,7 @@ class config(object):
     def init_property(self,environment,cv_file):
         # load database config
 
-        file = os.path.join(str(sys.path[0]),"Config","%s" % ("conf_{0}.json".format(environment)))
+        file = os.path.join(str(sys.path[0]),"app","ctdcore","Config","%s" % ("conf_{0}.json".format(environment)))
 
         with open(file) as config_db_file:
             conf = json.load(config_db_file)
