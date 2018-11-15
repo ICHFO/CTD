@@ -31,6 +31,12 @@ def check_keyword(keyword):
     if keyword == u'\u2013':
         new_keyword = '-'
 
+    if keyword == u'\u2018' or keyword == u'\u2019':
+        new_keyword = ''
+
+    if "'" in keyword:
+        new_keyword = ''
+
     return new_keyword
 
 def add_from_pdf(environment, path_to_pdf):
@@ -46,8 +52,6 @@ def add_from_pdf(environment, path_to_pdf):
     res = process_file(gp.config.cv_file)
 
     res_keywords = select_keywords(res)
-    print(res_keywords)
-
 
     return res_keywords
 
@@ -64,19 +68,20 @@ def read_pdf(file):
     # The word_tokenize() function will break our text phrases into #individual words
     tokens = word_tokenize(text)
 
-    ix = tokens.index('Name')
-    name = tokens[ix+3]
-    forename = tokens[ix+2]
+    #ix = tokens.index('Name')
+    #name = tokens[ix+3]
+    #forename = tokens[ix+2]
+    name = str(file).split('.')[1]
+    forename = str(file).split('.')[0]
 
     # we'll create a new list which contains punctuation we wish to clean
     punctuations = ['(', ')', ';', ':', '[', ']', ',']
     # We initialize the stopwords variable which is a list of words like #"The", "I", "and", etc. that don't hold much value as keywords
     stop_words = stopwords.words('english')
     # We create a list comprehension which only returns a list of words #that are NOT IN stop_words and NOT IN punctuations.
-    keywords = [check_keyword(word.lower()) for word in tokens if not word in stop_words and not word in punctuations]
+    keywords = [check_keyword(word.lower()) for word in tokens]
 
-    list_keywords  = list(set(keywords))   # without duplicates
-
+    #list_keywords  = list(set(keywords))   # without duplicates
     return keywords, name, forename
 
 

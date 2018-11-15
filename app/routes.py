@@ -29,11 +29,11 @@ def add_resource():
             return redirect(request.url)
         file.save(file.filename)
         # parse file and get resource
-        #output = lresm.add_from_pdf('DEV',file.filename)
-        # resource_id = lorrie_func_1(path_to_file)
-        resource_id = 'HFO'
+        output = lresm.add_from_pdf('DEV',file.filename)
+        resource_id = output[0]['res_id']
         resource = Resource(resource_id)
         # update session['resource_ids']
+        session['resource'] = resource.serialize()
         session['resource_ids'] = db_handler.get_resource_ids()
         return render_template('modify_resource.html'
                                , resource=resource
