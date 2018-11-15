@@ -25,6 +25,8 @@ def get_resource_keys(res_id):
 
 
 def update_resource_keys(mod_keys):
+    print(mod_keys)
     for key in mod_keys:
-        sql = "update dev.key set key_geldig = {} where key_id = {}".format(key['KEY_ID'], key['KEY_GELDIG'])
+        sql = "update dev.key set key_geldig = {} where key_id = {}".format(key['KEY_GELDIG'], key['KEY_ID'])
+        print(sql)
         result_set = ibm_db.exec_immediate(get_db(), sql)
