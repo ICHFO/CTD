@@ -45,6 +45,35 @@ def sql_fecth_1(stmt):
 
     return output
 
+def select_keywords(res_id):
+    res = []
+
+    stmt = """\
+
+    select r.RESM_RES_ID, r.resm_key_naam, r.resm_key_id, k.KEY_GELDIG 
+    from {0}.RESM r left join {0}.KEY k on r.resm_key_id = k.key_id
+    where r.RESM_RES_ID = '{1}' 
+
+    """.format(config.schema, res_id)
+
+    fetch_all = sql_fecth_all(stmt)
+
+    i = 0
+    while i < len(fetch_all):
+        fetch_result = fetch_all[i]
+        res_fetch = {}
+
+        res_fetch['res_id'] = str(fetch_result[0])
+        res_fetch['key_naam'] = str(fetch_result[1])
+        res_fetch['key_id'] = fetch_result[2]
+        res_fetch['key_geldig'] = fetch_result[3]
+
+        res.append(res_fetch)
+        i+=1
+
+
+    return res
+
 
 
 def res_exist(forename, name):

@@ -1,7 +1,7 @@
 import app.ctdcore.globalProperty as gp
 import pdftotext
 from app.ctdcore.log import LogInit, WriteIntoLogFile
-from app.ctdcore.sqlStatement import res_exist, insert_res, delete_resm, select_key, insert_keyword, select_resm, update_resm, insert_resm, update_res,insert_ress
+from app.ctdcore.sqlStatement import res_exist, insert_res, delete_resm, select_key, insert_keyword, select_resm, update_resm, insert_resm, update_res,insert_ress, select_keywords
 from datetime import datetime
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -32,6 +32,22 @@ def check_keyword(keyword):
         new_keyword = '-'
 
     return new_keyword
+
+def add_from_pdf(environment, path_to_pdf):
+    arg=[]
+    arg.append(environment)
+    arg.append(path_to_pdf)
+
+    init(arg)
+
+    #keywords, name, forename = read_pdf(path_to_pdf)
+    #res, new_res = res_exist(forename, name)
+
+    res = process_file(globalProperty.config.cv_file)
+
+    res_keywords = select_keywords(res)
+
+    return res_keywords
 
 
 def read_pdf(file):
