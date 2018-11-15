@@ -1,5 +1,5 @@
-from sqlConnection import sqlConnection
-from globalProperty import config
+from app.ctdcore.sqlConnection import sqlConnection
+from app.ctdcore.globalProperty import config
 import ibm_db
 from datetime import date, datetime
 
