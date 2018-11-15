@@ -1,6 +1,6 @@
-import globalProperty
-from log import LogInit, WriteIntoLogFile
-from sqlStatement import res_exist, insert_res, delete_resm, select_key, insert_keyword, select_resm, update_resm, insert_resm, update_res,insert_ress
+import app.ctdcore.globalProperty as gp
+from app.ctdcore.log import LogInit, WriteIntoLogFile
+from app.ctdcore.sqlStatement import res_exist, insert_res, delete_resm, select_key, insert_keyword, select_resm, update_resm, insert_resm, update_res,insert_ress
 
 import sys
 from datetime import datetime
@@ -16,14 +16,14 @@ import os, io
 
 def init(args):
 
-    if len (args) <> 0 :
+    if len (args) != 0 :
         environment = args[0]
         cv_file = args[1]
 
-        config = globalProperty.config()
+        config = gp.config()
         config.init_property(environment, cv_file)
 
-        LogInit(globalProperty.config.schema)
+        LogInit(gp.config.schema)
 
 
 def check_keyword(keyword):
@@ -149,15 +149,15 @@ def process_file(file):
 def main(args):
 
     init(args)
-    WriteIntoLogFile(globalProperty.config.schema, "Main : IN    ---- V03")
+    WriteIntoLogFile(gp.config.schema, "Main : IN    ---- V03")
 
     startTime=datetime.now()
 
-    process_file(globalProperty.config.cv_file)
+    process_file(gp.config.cv_file)
 
 
-    WriteIntoLogFile(globalProperty.config.schema, "script duration: "+str(datetime.now()-startTime))
-    WriteIntoLogFile(globalProperty.config.schema, "Main : OUT")
+    WriteIntoLogFile(gp.config.schema, "script duration: "+str(datetime.now()-startTime))
+    WriteIntoLogFile(gp.config.schema, "Main : OUT")
 
 
 
