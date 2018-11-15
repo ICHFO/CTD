@@ -1,4 +1,3 @@
-
 import json
 import os
 import sys
@@ -30,9 +29,4 @@ class config(object):
 
         config.schema = environment
         config.cv_file = cv_file
-
-
-
-
-
 

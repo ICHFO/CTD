@@ -1,5 +1,6 @@
 from app import db_handler
 from jsonpickle import encode
+import app.ctdcore.loading_RESM
 
 class Resource:
     def __init__(self, resource_id):
