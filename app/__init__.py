@@ -10,7 +10,7 @@ bootstrap = Bootstrap(app)
 VALID_KEYS_VALS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def connect_db():
-    return ibm_db.pconnect("DATABASE=ctddev;HOSTNAME=192.168.1.246;PORT=50010;UID=ctd;PWD=SuadaSoft","","")
+    return ibm_db.pconnect("DATABASE=ctddev;HOSTNAME=192.168.1.246;PORT=50010;UID=db2dev;PWD=db2dev","","")
 
 
 def get_db():
