@@ -100,7 +100,7 @@ def best_vacancies():
 def sixty_percent():
     if request.method == 'POST':
         conn = get_db()
-        resource_ids = db_handler.get_resource_ids(conn)
+        resource_ids = db_handler.get_resource_ids()
     return render_template('resource_map.html', resource_ids=resource_ids,
                            current_resource=session['resource_id'])
 
