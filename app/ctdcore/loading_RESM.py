@@ -1,17 +1,10 @@
 import app.ctdcore.globalProperty as gp
+import pdftotext
 from app.ctdcore.log import LogInit, WriteIntoLogFile
 from app.ctdcore.sqlStatement import res_exist, insert_res, delete_resm, select_key, insert_keyword, select_resm, update_resm, insert_resm, update_res,insert_ress
-
-import sys
 from datetime import datetime
-
-import pdftotext
-
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-
-import os, io
-
 
 
 def init(args):

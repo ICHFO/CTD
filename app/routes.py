@@ -28,6 +28,7 @@ def add_resource():
             return redirect(request.url)
         file.save(file.filename)
         # parse file and get resource
+
         # resource_id = lorrie_func_1(path_to_file)
         resource_id = 'HFO'
         resource = Resource(resource_id)
