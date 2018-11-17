@@ -3,34 +3,10 @@
 {% block rescontent %}
 <div class="jumbotron">
     <form method="POST" enctype="multipart/form-data">
-        <div class="custom-file mb-1">
-            <input type="file" class="custom-file-input" id="customFile" name="resfile">
-            <label class="custom-file-label" for="customFile" style="overflow: hidden">Choose file</label>
-        </div>
+        <div class="btn btn-default btn-file">
+        <input type="file" id="customFile" name="resfile">
+        </div><br>
         <button class="btn btn-info p-1 col-4 border border-dark" formaction="{{ url_for( 'add_resource') }}">Upload</button>
     </form>
 </div>
-
-<script type="script/javascript">
-$(document).ready(function(){
-    $("input[type=file]").change(function() {
-      var fieldVal = $(this).val();
-
-      // Change the node's value by removing the fake path (Chrome)
-      fieldVal = fieldVal.replace("C:\\fakepath\\", "");
-
-      if (fieldVal != undefined || fieldVal != "") {
-        $(this)
-          .next(".custom-file-label")
-          .attr("data-content", fieldVal);
-        $(this)
-          .next(".custom-file-label")
-          .text(fieldVal);
-        $(this)
-          .next(".custom-file-label")
-          .value(fieldVal);
-      }
-    });
-});
-</script>
 {% endblock %}
