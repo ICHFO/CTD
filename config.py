@@ -26,3 +26,13 @@ class PrdConfig(Config):
     ctd_port = 50020
     ctd_user = "db2prd"
     ctd_password = "SuadaSoft"
+    
+config_switch={
+    "DEV" : DevConfig,
+    "ACC" : AccConfig,
+    "PRD" : PrdConfig
+}
+
+def get_config(env):
+    config = config_switch.get(env, default="DEV")
+    return config()
