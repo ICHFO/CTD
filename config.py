@@ -21,7 +21,7 @@ class AccConfig(Config):
     ctd_password = "SuadaSoft"
     
 class PrdConfig(Config):
-    td_server = 192.168.1.246
+    ctd_server = 192.168.1.246
     ctd_database = "ctdprd"
     ctd_port = 50020
     ctd_user = "db2prd"
