@@ -1,16 +1,21 @@
 from flask import Flask, g
-from config import Config
+from config import Config, get_config
 from flask_bootstrap import Bootstrap
 import ibm_db
+import os
 
 app = Flask(__name__)
 app.config.from_object(Config)
 bootstrap = Bootstrap(app)
+ctdcfg = get_config(os.environ['CTDENV'])
 
 VALID_KEYS_VALS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def connect_db():
-    return ibm_db.pconnect("DATABASE=ctddev;HOSTNAME=192.168.1.246;PORT=50010;UID=db2dev;PWD=db2dev","","")
+    connstr = "DATABASE={};HOSTNAME={};PORT={};UID={};PWD={}".format(ctdcfg.get('ctd_database'),
+                                                                     ctdcfg.get('ctd_server'),
+                                                                     ctdcfg.get('ctd_port'))
+    return ibm_db.pconnect("DATABASE={};HOSTNAME={};PORT={};UID={};PWD={}","","")
 
 
 def get_db():

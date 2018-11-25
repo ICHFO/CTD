@@ -7,25 +7,28 @@ class Config(object):
     UPLOAD_FOLDER = 'uploads'
     
 class DevConfig(Config):
-    ctd_server = 192.168.1.246
+    ctd_server = "192.168.1.246"
     ctd_database = "ctddev"
     ctd_port = 50010
     ctd_user = "db2dev"
     ctd_password = "SuadaSoft"
+    schema = "DEV"
 
 class AccConfig(Config):
-    ctd_server = 192.168.1.246
+    ctd_server = "192.168.1.246"
     ctd_database = "ctdtst"
     ctd_port = 50030
     ctd_user = "db2tst"
     ctd_password = "SuadaSoft"
+    schema = "TST"
     
 class PrdConfig(Config):
-    ctd_server = 192.168.1.246
+    ctd_server = "192.168.1.246"
     ctd_database = "ctdprd"
     ctd_port = 50020
     ctd_user = "db2prd"
     ctd_password = "SuadaSoft"
+    schema = "PRD"
     
 config_switch={
     "DEV" : DevConfig,
