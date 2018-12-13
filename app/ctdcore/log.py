@@ -16,6 +16,6 @@ def LogInit(environment):
     logger.addHandler(fh)
 
 def WriteIntoLogFile(line,message):
-
+    print("writing to log")
     logger = logging.getLogger(line + ".log")
     logger.debug(message)

@@ -86,10 +86,8 @@ def resource_map():
 
 @app.route('/best_vacancies', methods=['POST'])
 def best_vacancies():
-    vacancies = []
-    vacancies.append(dict(URL="https://www.stepstone.be/vacatures--Database-Administrator-PostgreSQL-Brussel-CIRB-CIBG--1670071-inline.html?suid=ee7c88e0-080e-4b09-9b3f-358ffea3592d&rltr=1_1_25_dynrl_m_0_0", DESCRIPTION="Junior Database Administrator"))
-    vacancies.append(dict(URL="http://www.stepstone.be", DESCRIPTION="Data Analyst"))
-    vacancies.append(dict(URL="http://www.stepstone.be", DESCRIPTION="Information Management Specialist"))
+    resource = decode(session['resource'])
+    vacancies = db_handler.get_five_best(resource.id)
     resource_ids = db_handler.get_resource_ids()
     return render_template('resource_map.html', resource_ids=resource_ids,
                            resource=decode(session['resource']),

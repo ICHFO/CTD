@@ -29,7 +29,7 @@
         <div class="container containter-fluid mt-2">
             <ul class="list-group">
             {% for vacancy in vacancies %}
-                <a href="{{ vacancy['URL'] }}" class="list-group-item list-group-item-action border border-primary rounded">{{ vacancy['DESCRIPTION']}}</a>
+                <a href="{{ vacancy['VAC_URL'] }}" class="list-group-item list-group-item-action border border-primary rounded">{{ vacancy['VAC_URL']}}</a>
             {% endfor %}
             </ul>
         </div>

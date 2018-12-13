@@ -8,7 +8,7 @@ import app.ctdcore.sqlStatement as sql
 def add_from_pdf(file):
 	res = process_file(file)
 	res_keys = sql.select_keywords(res)
-	return res_keywords
+	return res_keys
 
 	
 def process_file(file):

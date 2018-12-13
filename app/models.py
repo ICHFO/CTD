@@ -6,6 +6,7 @@ class Resource:
     def __init__(self, resource_id):
         self.id = resource_id
         self.keys = self.retrieve_keys(resource_id)
+        self.abbrev = ""
 
     def serialize(self):
         return encode(self)
