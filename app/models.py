@@ -3,7 +3,8 @@ from jsonpickle import encode
 import app.ctdcore.loading_RESM
 
 class JobSite:
-    def __init__
+    def __init__(self, js_id):
+        self.id = js_id
 
 class Resource:
     def __init__(self, resource_id):
